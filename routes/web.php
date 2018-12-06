@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/**
+ * Routes to login via Social Networks. 
+ */
+Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('social_auth');
+Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Auth::routes();
 
