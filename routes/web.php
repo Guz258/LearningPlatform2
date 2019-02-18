@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/set_language/{lang}', 'Controller@setLanguage')->name('set_language');
 
 /**
  * Routes to login via Social Networks. 
